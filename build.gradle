@@ -12,7 +12,7 @@ dependencies {
 }
 
 bootRun.environment([
-        "WELCOME_MESSAGE": "Hello From Cloud Foundry",
+        "WELCOME_MESSAGE": "Hello",
 ])
 
 test.environment([

@@ -9,7 +9,7 @@ public class WelcomeController {
 
     private final  String msg;
     public WelcomeController(
-            @Value("${WELCOME_MESSAGE:NOT SET}") String msg)
+            @Value("${WELCOME_MESSAGE}") String msg)
     {
         this.msg =msg;
     }
