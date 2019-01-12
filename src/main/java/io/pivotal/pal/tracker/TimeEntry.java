@@ -1,7 +1,6 @@
 package io.pivotal.pal.tracker;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
 public class TimeEntry {
     private long id;
@@ -10,21 +9,17 @@ public class TimeEntry {
     private LocalDate date;
     private int hours;
 
-    public long getId() {
-        return id;
-    }
-
     public TimeEntry() {
     }
 
-    public TimeEntry(final long projectId, final long userId, final LocalDate date, final int hours) {
+    public TimeEntry(long projectId, long userId, LocalDate date, int hours) {
         this.projectId = projectId;
         this.userId = userId;
         this.date = date;
         this.hours = hours;
     }
 
-    public TimeEntry(final long id, final long projectId, final long userId, final LocalDate date, final int hours) {
+    public TimeEntry(long id, long projectId, long userId, LocalDate date, int hours) {
         this.id = id;
         this.projectId = projectId;
         this.userId = userId;
@@ -32,20 +27,28 @@ public class TimeEntry {
         this.hours = hours;
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public long getProjectId() {
-        return this.projectId;
+        return projectId;
     }
 
     public long getUserId() {
-        return this.userId;
+        return userId;
     }
 
     public LocalDate getDate() {
-        return this.date;
+        return date;
     }
 
     public int getHours() {
-        return this.hours;
+        return hours;
     }
 
     @Override
@@ -59,6 +62,27 @@ public class TimeEntry {
         if (projectId != timeEntry.projectId) return false;
         if (userId != timeEntry.userId) return false;
         if (hours != timeEntry.hours) return false;
-        return Objects.equals(date, timeEntry.date);
+        return date != null ? date.equals(timeEntry.date) : timeEntry.date == null;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + (int) (projectId ^ (projectId >>> 32));
+        result = 31 * result + (int) (userId ^ (userId >>> 32));
+        result = 31 * result + (date != null ? date.hashCode() : 0);
+        result = 31 * result + hours;
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "TimeEntry{" +
+                "id=" + id +
+                ", projectId=" + projectId +
+                ", userId=" + userId +
+                ", date='" + date + '\'' +
+                ", hours=" + hours +
+                '}';
     }
 }

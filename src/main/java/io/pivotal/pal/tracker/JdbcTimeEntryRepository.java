@@ -14,6 +14,7 @@ import java.util.List;
 import static java.sql.Statement.RETURN_GENERATED_KEYS;
 
 public class JdbcTimeEntryRepository implements TimeEntryRepository {
+
     private final JdbcTemplate jdbcTemplate;
 
     public JdbcTimeEntryRepository(DataSource dataSource) {
@@ -85,4 +86,3 @@ public class JdbcTimeEntryRepository implements TimeEntryRepository {
     private final ResultSetExtractor<TimeEntry> extractor =
             (rs) -> rs.next() ? mapper.mapRow(rs, 1) : null;
 }
-

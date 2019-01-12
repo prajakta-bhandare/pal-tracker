@@ -19,7 +19,6 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
         );
 
         timeEntries.put(id, newTimeEntry);
-
         return newTimeEntry;
     }
 
@@ -35,7 +34,7 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
 
     @Override
     public TimeEntry update(Long id, TimeEntry timeEntry) {
-        TimeEntry updatedTimeEntry = new TimeEntry(
+        TimeEntry updatedEntry = new TimeEntry(
                 id,
                 timeEntry.getProjectId(),
                 timeEntry.getUserId(),
@@ -43,15 +42,13 @@ public class InMemoryTimeEntryRepository implements TimeEntryRepository {
                 timeEntry.getHours()
         );
 
-        timeEntries.replace(id, updatedTimeEntry);
-
-        return updatedTimeEntry;
+        timeEntries.replace(id, updatedEntry);
+        return updatedEntry;
     }
 
     @Override
     public void delete(Long id) {
         timeEntries.remove(id);
-
-        return;
     }
 }
+
