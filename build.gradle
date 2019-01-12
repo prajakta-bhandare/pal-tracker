@@ -50,7 +50,7 @@ bootRun.environment([
         "SPRING_DATASOURCE_URL": developmentDbUrl,
         "MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE": "*",
         "MANAGEMENT_ENDPOINT_HEALTH_SHOWDETAILS": "always",
-        "HTTPS_DISABLED":true,
+        "HTTPS_DISABLED":false,
         "MANAGEMENT_SECURITY_ENABLED": false,
 ])
 
@@ -60,7 +60,7 @@ test.environment([
         "SPRING_DATASOURCE_URL": testDbUrl,
         "MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE": "*",
         "MANAGEMENT_ENDPOINT_HEALTH_SHOWDETAILS": "always",
-        "HTTPS_DISABLED":true,
+        "HTTPS_DISABLED":false,
         "MANAGEMENT_SECURITY_ENABLED": false,
 ])
 

@@ -21,7 +21,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter
     @Override
     protected void configure(HttpSecurity http) throws Exception
     {
-        if(!disableHttps) {
+        if(false && !disableHttps) {
             http.requiresChannel().anyRequest().requiresSecure();
         }
         http
